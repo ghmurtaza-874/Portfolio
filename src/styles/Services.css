@@ -1,0 +1,111 @@
+/* ══════════════════════════════════════════════
+   SERVICES — bento grid of capabilities
+   ══════════════════════════════════════════════ */
+
+.services-orb-1 {
+  width: 340px;
+  height: 340px;
+  bottom: -80px;
+  left: 30%;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+
+.service-card {
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.7rem 1.7rem 1.6rem;
+}
+
+.service-card.is-wide {
+  grid-column: span 4;
+}
+
+.service-arrow {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  opacity: 0;
+  transform: translate(4px, -4px);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover .service-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+  color: var(--cyan);
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.15rem;
+  border-radius: 15px;
+  color: var(--purple);
+  background: linear-gradient(150deg, rgba(139, 92, 246, 0.16), rgba(59, 130, 246, 0.08));
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-4px) rotate(-6deg);
+  box-shadow: 0 10px 26px rgba(139, 92, 246, 0.3);
+}
+
+.service-card:nth-child(odd) .service-icon {
+  color: var(--cyan);
+  background: linear-gradient(150deg, rgba(34, 211, 238, 0.14), rgba(59, 130, 246, 0.08));
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.service-title {
+  font-size: 1.16rem;
+  margin-bottom: 0.55rem;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  line-height: 1.68;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991.98px) {
+  .service-card,
+  .service-card.is-wide {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .service-card,
+  .service-card.is-wide {
+    grid-column: span 6;
+  }
+}

@@ -1,0 +1,215 @@
+/* ══════════════════════════════════════════════
+   SKILLS — categorized glass cards + level bars
+   ══════════════════════════════════════════════ */
+
+.skills-orb-1 { width: 360px; height: 360px; top: -80px; right: -140px; }
+.skills-orb-2 { width: 300px; height: 300px; bottom: -60px; left: -120px; animation-delay: -7s; }
+
+/* ── Legend ── */
+.skill-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 2.4rem;
+}
+
+.legend-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-right: 0.4rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  padding: 0.32rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-2);
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.level-comfortable .legend-dot,
+.skill-badge.level-comfortable { --level-color: var(--green); }
+.level-improving .legend-dot,
+.skill-badge.level-improving   { --level-color: var(--cyan); }
+.level-familiar .legend-dot,
+.skill-badge.level-familiar    { --level-color: var(--pink); }
+
+.level-comfortable .legend-dot { background: var(--green); }
+.level-improving  .legend-dot { background: var(--cyan); }
+.level-familiar   .legend-dot { background: var(--pink); }
+
+/* ── Category card ── */
+.skill-category {
+  height: 100%;
+  padding: 1.6rem 1.6rem 1.4rem;
+}
+
+.skill-cat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.skill-cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  color: var(--purple);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.col-md-6:nth-child(even) .skill-cat-icon {
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.1);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.skill-cat-title {
+  font-size: 1.12rem;
+  margin: 0;
+}
+
+.skill-cat-sub {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin: 0.1rem 0 0;
+}
+
+/* ── Skill rows ── */
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding-top: 0.9rem;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'top   top'
+    'bar   pct';
+  column-gap: 0.8rem;
+  align-items: center;
+}
+
+.skill-top {
+  grid-area: top;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-row:hover .skill-icon {
+  color: var(--cyan);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.2);
+}
+
+.skill-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.skill-name {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.skill-blurb {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.skill-badge {
+  flex-shrink: 0;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.26rem 0.6rem;
+  border-radius: 999px;
+  color: var(--level-color, var(--cyan));
+  background: color-mix(in srgb, var(--level-color, var(--cyan)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--level-color, var(--cyan)) 35%, transparent);
+}
+
+/* ── Level bar ── */
+.skill-bar {
+  grid-area: bar;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.skill-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--purple), var(--blue) 55%, var(--cyan));
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.55);
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+/* Animate the bar when the card scrolls into view */
+.reveal.revealed .skill-fill,
+.skill-category.revealed .skill-fill {
+  width: var(--level, 0%);
+}
+
+.skill-pct {
+  grid-area: pct;
+  font-size: 0.72rem;
+  color: var(--text-3);
+  text-align: right;
+}
+
+@media (max-width: 575.98px) {
+  .skill-category {
+    padding: 1.3rem 1.15rem;
+  }
+}

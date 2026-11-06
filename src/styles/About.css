@@ -1,0 +1,148 @@
+/* ══════════════════════════════════════════════
+   ABOUT — story + editor-style code card
+   ══════════════════════════════════════════════ */
+
+.about {
+  background: linear-gradient(180deg, transparent, rgba(11, 16, 32, 0.6) 45%, transparent);
+}
+
+.about-orb-1 {
+  width: 380px;
+  height: 380px;
+  top: 10%;
+  left: -160px;
+}
+
+/* ── Code card ── */
+.about-code {
+  padding: 0;
+  overflow: hidden;
+}
+
+.code-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.15rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.code-dot.red    { background: #ff5f57; }
+.code-dot.yellow { background: #febc2e; }
+.code-dot.green  { background: #28c840; }
+
+.code-file {
+  margin-left: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+
+.code-body {
+  margin: 0;
+  padding: 1.35rem 1.35rem 1.5rem;
+  font-size: 0.86rem;
+  line-height: 1.85;
+  color: var(--text-2);
+  overflow-x: auto;
+}
+
+/* Syntax colors */
+.tok-kw   { color: var(--pink); }
+.tok-var  { color: var(--cyan); }
+.tok-type { color: var(--violet); }
+.tok-pun  { color: var(--text-3); }
+.tok-key  { color: var(--blue); }
+.tok-str  { color: var(--green); }
+.tok-bool { color: var(--pink); }
+
+/* ── Story ── */
+.about-story p {
+  margin-bottom: 1.05rem;
+  font-size: 1rem;
+}
+
+.about-quote {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 1.4rem 0 1.6rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid;
+  border-image: linear-gradient(180deg, var(--purple), var(--cyan)) 1;
+  background: rgba(139, 92, 246, 0.07);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-1);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.about-quote svg {
+  color: var(--violet);
+  flex-shrink: 0;
+}
+
+/* ── Highlight mini-cards ── */
+.about-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  height: 100%;
+  padding: 1.05rem 1.15rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 14px 34px rgba(2, 4, 12, 0.45), 0 0 22px rgba(139, 92, 246, 0.14);
+}
+
+.about-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+.about-card:nth-child(even) .about-card-icon,
+.col-sm-6:nth-child(even) .about-card-icon {
+  color: var(--pink);
+  background: rgba(244, 114, 182, 0.1);
+  border-color: rgba(244, 114, 182, 0.25);
+}
+
+.about-card-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 0.1rem 0 0.2rem;
+}
+
+.about-card-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text-2);
+}
+
+@media (max-width: 767.98px) {
+  .about-code {
+    margin-bottom: 0.5rem;
+  }
+}
